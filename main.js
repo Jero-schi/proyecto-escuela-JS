@@ -5,6 +5,7 @@ const burgericon = document.querySelector('.menu') // icono menu en mobile
 const carritoIcon = document.querySelector('.carrito') // icono carrito del nav
 const carrito = document.querySelector('.product-detail') // carrito desplegable
 const cardsContainer = document.querySelector('.cards-container') // contenedor de cartas
+const productDetail = document.querySelector('.product-detail-info') // detalles del producto
 
 
 
@@ -77,5 +78,14 @@ function renderProducts(arr) {
 }
 
 renderProducts(productArray);
+
+
+// const tarjetaProducto = document.querySelector('.products-card')
+// tarjetaProducto.addEventListener('click', ()=> {
+//     desktopMenu.classList.add('inactive')
+//     mobileMenu.classList.add('inactive')
+//     carrito.classList.add('inactive')
+//     productDetail.classList.toggle('inactive')
+// })
 
 
