@@ -276,6 +276,7 @@ height: 50px;
 
 .products-card {
     width: 240px;
+    cursor: pointer;
 }
 
 .products-card img {
@@ -321,6 +322,7 @@ height: 50px;
     height: calc(100vh - 60px);
     position: absolute;
     right: 0;
+    background-color: var(--white);
 }
 
 .product-detail-close {

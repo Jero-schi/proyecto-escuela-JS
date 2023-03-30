@@ -6,9 +6,13 @@ const carritoIcon = document.querySelector('.carrito') // icono carrito del nav
 const carrito = document.querySelector('.product-detail') // carrito desplegable
 const cardsContainer = document.querySelector('.cards-container') // contenedor de cartas
 const productDetail = document.querySelector('.product-detail-info') // detalles del producto
+const iconClose = document.querySelector('#icon-close') // icono close de detalles del producto
+const pPriceDetail = document.querySelector('#product-price-detail')
+const pNameDetail = document.querySelector('#product-name-detail')
 
 
 
+console.log(pNameDetail, pPriceDetail);
 // creando lista de productos
 const productArray = [];
 productArray.push({ // bike
@@ -30,12 +34,14 @@ productArray.push({ // monitor
 // evento click al email del nav
 navEmail.addEventListener('click', () => {
     carrito.classList.add('inactive')
+    productDetail.classList.add('inactive')
     desktopMenu.classList.toggle('inactive')
 })
 
 // evento click al icono de menu en mobile
 burgericon.addEventListener('click', () => {
     carrito.classList.add('inactive')
+    productDetail.classList.add('inactive')
     mobileMenu.classList.toggle('inactive')
 })
 
@@ -43,13 +49,24 @@ burgericon.addEventListener('click', () => {
 carritoIcon.addEventListener('click', () => {
     desktopMenu.classList.add('inactive')
     mobileMenu.classList.add('inactive')
+    productDetail.classList.add('inactive')
     carrito.classList.toggle('inactive')
+})
+
+iconClose.addEventListener('click', ()=>{
+    productDetail.classList.add('inactive')
 })
 
 function renderProducts(arr) {
     for (product of arr) {        
         const productsCard = document.createElement('div'); // div carta del producto
         productsCard.classList.add('products-card')
+        productsCard.addEventListener('click', () => {
+            desktopMenu.classList.add('inactive')
+            mobileMenu.classList.add('inactive')
+            carrito.classList.add('inactive')
+            productDetail.classList.remove('inactive')
+        })
          
         const imgProduct = document.createElement('img'); // imagen del producto
         imgProduct.setAttribute('src', product.img); 
@@ -78,14 +95,5 @@ function renderProducts(arr) {
 }
 
 renderProducts(productArray);
-
-
-// const tarjetaProducto = document.querySelector('.products-card')
-// tarjetaProducto.addEventListener('click', ()=> {
-//     desktopMenu.classList.add('inactive')
-//     mobileMenu.classList.add('inactive')
-//     carrito.classList.add('inactive')
-//     productDetail.classList.toggle('inactive')
-// })
 
 
